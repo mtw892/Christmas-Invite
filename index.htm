@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas RSVP</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('images/drunk_elf.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll; /* Ensures compatibility with mobile */
+    background-color: #000; /* Fallback color */
+    color: #ffffff;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+    body {
+        background-size: contain; /* Fit the image within the mobile viewport */
+        background-position: center top;
+    }
+}
+
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Ensures lights stay within the container */
+        }
+
+        /* Invitation image */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+       
+
+        /* Individual lights */
+        .light {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #ffffff;
+            opacity: 0.3;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        /* Keyframe animation for twinkle effect */
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+ /* Form styling */
+ .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            text-align: left;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            max-width: 420px; /* Set the maximum width of the input fields */
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* RSVP buttons */
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .buttons button {
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            color: #fff;
+            width: 100%; /* Default width for larger screens */
+        }
+
+        /* Solid green button */
+        .attend {
+            background-color: #0f4b0d;
+        }
+
+        .attend:hover {
+            background-color: #23913a;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Solid red button */
+        .decline {
+            background-color: #a00005;
+        }
+
+        .decline:hover {
+            background-color: #c82333;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Responsive design for input field sizes */
+        @media (min-width: 768px) {
+            input {
+                max-width: 550px; /* Larger width for desktop */
+            }
+
+            .buttons {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .buttons button {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            input {
+                max-width: 400px; /* Smaller width for mobile */
+            }
+        }
+
+        /* Shorten button length on mobile devices */
+        @media (max-width: 768px) {
+            .buttons button {
+                width: 80%; /* Reduce width to 80% of the container */
+                margin: 0 auto; /* Center the buttons */
+            }
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .buttons {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .buttons button {
+                width: 45%; /* Shorten the button length on desktop as well */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Twinkling yellow lights -->
+        <div class="twinkling-lights">
+            <!-- Generate multiple lights -->
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+
+        <!-- Display the uploaded image -->
+        <img src="images/christmas_Invite.png" alt="Christmas Invitation">
+        
+    
+           <!-- RSVP Form with Additional Fields -->
+        <form action="https://formspree.io/f/xeoqwqka" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="attend" name="rsvp" value="We Will Be There!">We Will Be There!</button>
+                <button type="submit" class="decline" name="rsvp" value="Already Made Plans with the Grinch">Already Made Plans with the Grinch</button>
+            </div>
+            <!-- Optional: Subject line for Formspree email -->
+            <input type="hidden" name="_subject" value="New RSVP Response">
+        </form>
+        </div>
+    </div>
+</body>
+</html>
